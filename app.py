@@ -140,7 +140,7 @@ with tab1:
     
     # Process button
     if script_content:
-        if st.button("💾 Lưu Script và Tiếp tục", type="primary", use_container_width=True):
+        if st.button("💾 Lưu Script và Tiếp tục", type="primary"):
             st.session_state.processed_script = script_content
             st.success("✅ Script đã sẵn sàng! Vui lòng chọn **Bước 2: AI Processing** để tiếp tục.")
 
@@ -163,7 +163,7 @@ with tab2:
         col1, col2 = st.columns(2)
         
         with col1:
-            if st.button("✨ Tạo Nội Dung Mới từ Prompt", use_container_width=True):
+            if st.button("✨ Tạo Nội Dung Mới từ Prompt"):
                 with st.spinner("🤖 AI đang tạo nội dung..."):
                     try:
                         generated_content = gemini_service.generate_educational_content(
@@ -176,7 +176,7 @@ with tab2:
                         st.error(f"❌ Lỗi: {str(e)}")
         
         with col2:
-            if st.button("🎨 Cải Thiện Script Hiện Tại", use_container_width=True):
+            if st.button("🎨 Cải Thiện Script Hiện Tại"):
                 with st.spinner("🤖 AI đang cải thiện script..."):
                     try:
                         enhanced_content = gemini_service.enhance_script(
@@ -211,7 +211,7 @@ with tab2:
         
         col1, col2 = st.columns(2)
         with col1:
-            if st.button("💾 Lưu Script vào Script Folder", use_container_width=True):
+            if st.button("💾 Lưu Script vào Script Folder"):
                 try:
                     saved_path = file_service.save_script(
                         st.session_state.processed_script,
@@ -223,7 +223,7 @@ with tab2:
                     st.error(f"❌ Lỗi: {str(e)}")
         
         with col2:
-            if st.button("➡️ Tiếp tục đến Bước 3: Tạo Video", type="primary", use_container_width=True):
+            if st.button("➡️ Tiếp tục đến Bước 3: Tạo Video", type="primary"):
                 st.success("✅ Chuyển sang Bước 3")
                 st.rerun()
 
@@ -252,11 +252,10 @@ with tab3:
                     cols = st.columns(4)
                     for idx, avatar in enumerate(avatars[:20]):  # Show first 20
                         with cols[idx % 4]:
-                            st.image(avatar['preview_url'], use_container_width=True)
+                            st.image(avatar['preview_url'], use_column_width=True)
                             if st.button(
-                                f"Chọn\n{avatar['name'][:20]}...",
-                                key=f"avatar_{avatar['id']}",
-                                use_container_width=True
+                                f"Chọn {avatar['name'][:15]}",
+                                key=f"avatar_{avatar['id']}"
                             ):
                                 st.session_state.selected_avatar = avatar
                                 st.success(f"✅ Đã chọn: {avatar['name']}")
@@ -280,7 +279,7 @@ with tab3:
                         )
                         
                         # Create video button
-                        if st.button("🎬 Tạo Video", type="primary", use_container_width=True):
+                        if st.button("🎬 Tạo Video", type="primary"):
                             with st.spinner("🎬 Đang tạo video... Vui lòng đợi..."):
                                 try:
                                     video_id = heygen_service.create_video(
@@ -313,7 +312,7 @@ with tab4:
         st.info(f"🎬 Video ID: {st.session_state.video_id}")
         
         # Check video status
-        if st.button("🔄 Kiểm tra trạng thái video", use_container_width=True):
+        if st.button("🔄 Kiểm tra trạng thái video"):
             with st.spinner("Đang kiểm tra..."):
                 try:
                     status_data = heygen_service.get_video_status(st.session_state.video_id)
@@ -348,7 +347,7 @@ with tab4:
                 
                 # Show thumbnail
                 if thumbnail_url:
-                    st.image(thumbnail_url, caption="Video Thumbnail", use_container_width=True)
+                    st.image(thumbnail_url, caption="Video Thumbnail", use_column_width=True)
                 
                 # Video info
                 if duration:
@@ -363,9 +362,9 @@ with tab4:
                     st.divider()
                     col1, col2 = st.columns(2)
                     with col1:
-                        st.link_button("📥 Tải Video", video_url, use_container_width=True)
+                        st.link_button("📥 Tải Video", video_url)
                     with col2:
-                        if st.button("🔄 Tạo Video Mới", use_container_width=True):
+                        if st.button("🔄 Tạo Video Mới"):
                             # Reset session state
                             st.session_state.video_id = None
                             st.session_state.video_status = None
@@ -379,7 +378,7 @@ with tab4:
                 error_msg = st.session_state.video_status.get('error', 'Unknown error')
                 st.error(f"Chi tiết lỗi: {error_msg}")
                 
-                if st.button("🔄 Thử lại", use_container_width=True):
+                if st.button("🔄 Thử lại"):
                     st.session_state.video_id = None
                     st.session_state.video_status = None
                     st.rerun()
