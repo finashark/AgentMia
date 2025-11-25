@@ -1,0 +1,99 @@
+
+[     UTC     ] Logs for agentmia.streamlit.app/
+────────────────────────────────────────────────────────────────────────────────────────
+[09:24:49] 🚀 Starting up repository: 'agentmia', branch: 'main', main module: 'app.py'
+[09:24:49] 🐙 Cloning repository...
+[09:24:50] 🐙 Cloning into '/mount/src/agentmia'...
+
+[09:24:50] 🐙 Cloned repository!
+[09:24:50] 🐙 Pulling code changes from Github...
+[09:24:51] 📦 Processing dependencies...
+
+──────────────────────────────────────── uv ───────────────────────────────────────────
+
+Using uv pip install.
+Using Python 3.13.9 environment at /home/adminuser/venv
+Resolved 60 packages in 583ms
+Prepared 60 packages in 1m 36s
+Installed 60 packages in 88ms
+ + altair==5.5.0
+ + attrs==25.4.0
+ + blinker==1.9.0
+ + cachetools==5.5.2
+ + certifi==2025.11.12
+ + charset-normalizer==3.4.4
+ + click==8.3.1
+ + gitdb==4.0.12
+ +[2025-11-25 09:26:29.248069]  gitpython==3.1.45
+ + google-ai-generativelanguage==0.4.0
+ + google-api-core==2.28.1
+ + google-auth==2.43.0
+ + google-generativeai==0.3.2
+ + googleapis-common-protos==1.72.0
+ + grpcio==1.76.0
+ + grpcio-status==1.62.3
+ + idna==3.11
+ + importlib-metadata[2025-11-25 09:26:29.248299] ==6.11.0
+ + jinja2==3.1.6
+ + jsonschema==4.25.1
+ + jsonschema-specifications==2025.9.1
+ + lxml==6.0.2
+ + markdown-it-py==4.0.0
+ + [2025-11-25 09:26:29.248507] markupsafe==3.0.3
+ + mdurl==0.1.2
+ + narwhals==2.12.0
+ + numpy==1.26.4
+ + packaging==23.2
+ +[2025-11-25 09:26:29.248740]  pandas==2.3.3
+ + pillow==10.4.0
+ + proto-plus==1.26.1
+ + protobuf==4.25.8
+ + pyarrow==22.0.0
+ + pyasn1==0.6.1
+ + [2025-11-25 09:26:29.248870] pyasn1-modules==0.4.2
+ + pydeck==0.9.1
+ + pygments==2.19.2
+ + python-dateutil==2.9.0.post0
+ + python-docx==1.1.0
+ + python-dotenv[2025-11-25 09:26:29.249070] ==1.0.0
+ + pytz==2025.2
+ + referencing==0.37.0
+ + requests==2.31.0
+ + rich==13.9.4
+ +[2025-11-25 09:26:29.249205]  rpds-py==0.29.0
+ + rsa==4.9.1
+ + six==1.17.0
+ + smmap==5.0.2
+ + [2025-11-25 09:26:29.249339] streamlit==1.29.0
+ + tenacity==8.5.0
+ + toml==0.10.2
+ + tornado==6.5.2
+ + tqdm==4.67.1
+ + typing-extensions==4.15.0
+ + tzdata==2025.2[2025-11-25 09:26:29.249459] 
+ + tzlocal==5.3.1
+ + urllib3==2.5.0
+ + validators==0.35.0
+ + watchdog==6.0.0
+ + zipp==3.23.0
+Checking if Streamlit is installed
+/home/adminuser/venv/lib/python3.13/site-packages/streamlit/elements/lib/column_types.py:442: SyntaxWarning: invalid escape sequence '\.'
+  >>>             validate="^st\.[a-z_]+$",
+/home/adminuser/venv/lib/python3.13/site-packages/streamlit/elements/lib/column_types.py:540: SyntaxWarning: invalid escape sequence '\.'
+  >>>             validate="^https://[a-z]+\.streamlit\.app$",
+/home/adminuser/venv/lib/python3.13/site-packages/streamlit/elements/layouts.py:470: SyntaxWarning: invalid escape sequence '\.'
+  backslash-escaping them. E.g. ``1\. Not an ordered list``.
+Found Streamlit version 1.29.0 in the environment
+Installing rich for an improved exception logging
+Using uv pip install.
+Using Python 3.13.9 environment at /home/adminuser/venv
+Audited 1 package in 4ms
+
+────────────────────────────────────────────────────────────────────────────────────────
+
+[09:26:33] 🐍 Python dependencies were installed from /mount/src/agentmia/requirements.txt using uv.
+Check if streamlit is installed
+Streamlit is already installed
+[09:26:34] 📦 Processed dependencies!
+
+
