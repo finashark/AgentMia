@@ -64,6 +64,27 @@ with st.sidebar:
     
     st.divider()
     
+    # API Usage Stats
+    st.header("📊 API Usage")
+    try:
+        usage = gemini_service.get_usage_stats()
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("Còn lại/phút", f"{usage['remaining']}/{usage['max_per_minute']}")
+        with col2:
+            st.metric("Tổng đã dùng", usage['total_calls'])
+        
+        # Progress bar for rate limit
+        progress = usage['calls_this_minute'] / usage['max_per_minute']
+        st.progress(progress, text=f"Rate limit: {usage['calls_this_minute']}/{usage['max_per_minute']}")
+        
+        if usage['remaining'] == 0:
+            st.warning("⏳ Đợi 1 phút để reset")
+    except:
+        pass
+    
+    st.divider()
+    
     st.header("📁 Scripts đã lưu")
     try:
         scripts = file_service.list_scripts()
