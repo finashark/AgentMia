@@ -1,6 +1,7 @@
 """
 Google Gemini AI Service
 Handles content generation using Google Gemini API
+Version: 1.1 - Fixed system_instruction compatibility
 """
 import google.generativeai as genai
 from config import GOOGLE_API_KEY, GEMINI_MODEL
