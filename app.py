@@ -119,10 +119,9 @@ with tab1:
     
     # Process button
     if script_content:
-        if st.button("➡️ Tiếp tục đến Bước 2: AI Processing", type="primary", use_container_width=True):
+        if st.button("💾 Lưu Script và Tiếp tục", type="primary", use_container_width=True):
             st.session_state.processed_script = script_content
-            st.success("✅ Script đã sẵn sàng! Chuyển sang Bước 2.")
-            st.rerun()
+            st.success("✅ Script đã sẵn sàng! Vui lòng chọn **Bước 2: AI Processing** để tiếp tục.")
 
 # ==================== TAB 2: AI PROCESSING ====================
 with tab2:

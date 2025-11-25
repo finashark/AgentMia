@@ -15,38 +15,31 @@ class GeminiService:
         genai.configure(api_key=GOOGLE_API_KEY)
         self.model = genai.GenerativeModel(GEMINI_MODEL)
     
-    def generate_educational_content(self, script_prompt: str, system_instruction: str = None) -> str:
+    def generate_educational_content(self, script_prompt: str) -> str:
         """
         Generate educational content from script prompt
         
         Args:
             script_prompt: The input script/prompt to process
-            system_instruction: Optional system instruction for content generation
             
         Returns:
             Generated educational content as string
         """
         try:
-            # Default system instruction for educational content
-            if system_instruction is None:
-                system_instruction = """Bạn là một chuyên gia tạo nội dung giáo dục.
-                Nhiệm vụ của bạn là tạo ra các bài giảng, script video giáo dục chất lượng cao.
-                Nội dung phải:
-                - Dễ hiểu, rõ ràng
-                - Có cấu trúc logic
-                - Phù hợp để đọc thành video
-                - Ngắn gọn nhưng đầy đủ thông tin
-                - Sử dụng ngôn ngữ thân thiện, dễ tiếp cận
-                """
-            
-            # Create model with system instruction
-            model = genai.GenerativeModel(
-                GEMINI_MODEL,
-                system_instruction=system_instruction
-            )
+            # Embed system instruction in prompt for compatibility
+            full_prompt = f"""Bạn là một chuyên gia tạo nội dung giáo dục.
+Nhiệm vụ của bạn là tạo ra các bài giảng, script video giáo dục chất lượng cao.
+Nội dung phải:
+- Dễ hiểu, rõ ràng
+- Có cấu trúc logic
+- Phù hợp để đọc thành video
+- Ngắn gọn nhưng đầy đủ thông tin
+- Sử dụng ngôn ngữ thân thiện, dễ tiếp cận
+
+Yêu cầu: {script_prompt}"""
             
             # Generate content
-            response = model.generate_content(script_prompt)
+            response = self.model.generate_content(full_prompt)
             
             return response.text
             
